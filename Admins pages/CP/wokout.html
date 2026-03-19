@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workout Page</title>
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-gXw1Wt46k/7jgkFsLr2lVfwG2tbyjfuO3p+9FmrBQo1hIy2PqkDm/I8dxOqs9RCrFzQj2dMZ36qgDH19J5zE9Q==" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<style>
+    body {
+        background-color: #000; /* Black background */
+        color: #fff; /* White text */
+    }
+
+    /* Navbar background */
+    .navbar {
+        background-color: #000; /* Black background for the navbar */
+    }
+
+    /* Active page color */
+    .navbar-nav .nav-item.active .nav-link {
+        color: #ff4500 !important; /* Orange-red color for the active page */
+    }
+
+    /* Hover color for the navigation items */
+    .navbar-nav .nav-link:hover {
+        color: #ff4500 !important; /* Add !important for higher specificity */
+    }
+
+    /* Align items in navbar */
+    .navbar-nav {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-nav .nav-item {
+        margin-right: 10px; /* Adjust spacing between items */
+    }
+
+    .navbar .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Override common layout styles */
+    body {
+        background-color: black;
+    }
+
+    /* Workout Page Content */
+    .workout-container {
+        margin-top: 50px;
+    }
+
+    .form-container {
+        background-color: #333;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    .form-container label {
+        color: #fff;
+    }
+
+    .form-container input[type="text"],
+    .form-container textarea {
+        background-color: #555;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .form-container input[type="file"] {
+        background-color: #555;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .form-container .btn {
+        margin-top: 10px;
+    }
+    .container {
+        position: relative;
+      }
+
+      #workout-title {
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.35);
+        font-size: 7em;
+        font-weight: 900;
+        font-family: "Poppins", sans-serif;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 0%;
+        position: relative; /* Added */
+      }
+
+      #desc {
+        position: absolute; /* Added */
+        bottom: -30px; /* Added */
+        left: 50%; /* Added */
+        transform: translateX(-50%); /* Added */
+        font-size: 2.4rem;
+        text-align: center;
+        color: white;
+        font-weight: 800;
+        margin-bottom: 50px;
+        font-family: "Montserrat", sans-serif;
+        text-transform: uppercase;
+      }
+</style>
+</head>
+<body class="font-sans">
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container mx-auto">
+        <img src="logo.png" alt="Fitness Fusion Logo" class="h-12 w-auto mr-2"/>
+        <a class="navbar-brand font-bold" href="#" style="font-size: 24px">Fitness Fusion</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#about-gym" style="font-size: 18px">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="workout.html" id="workoutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 18px">
+                        Workouts
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="workoutDropdown">
+                        <a class="dropdown-item" href="#" onclick="openForm('cardsForm')">Cards</a>
+                        <a class="dropdown-item" href="#" onclick="openForm('videoForm')">Video</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="membership.html" style="font-size: 18px">Membership</a>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="facilitie.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 18px">
+                        Facilities
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Programs</a>
+                        <a class="dropdown-item" href="#">Amenities</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html" style="font-size: 18px">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#sponsors" style="font-size: 18px">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#sponsors" style="font-size: 18px">About Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<hr style="border-color: white"/>
+<!-- Navigation ends -->
+<div class="container">
+    <p id="workout-title">ADMIN WINDOW</p>
+    <p id="desc">Workout section</p>
+  </div>
+<!-- Workout Page Content -->
+<div class="container workout-container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            
+            <!-- Cards Form -->
+            <div id="cardsForm" class="form-container" style="display: none;">
+                <form>
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" class="form-control" id="title" placeholder="Enter title">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea class="form-control" id="description" rows="3" placeholder="Enter description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Upload Image:</label>
+                        <input type="file" class="form-control-file" id="image">
+                    </div>
+                    <button type="button" class="btn btn-outline-success" onclick="deleteItem()">Add</button>
+                    <button type="button" class="btn btn-outline-danger" onclick="addItem()">Delete</button>
+                    <button type="button" class="btn btn-outline-warning" onclick="updateItem()">Update</button>
+                </form>
+            </div>
+            <!-- Video Form -->
+            <div id="videoForm" class="form-container" style="display: none;">
+                <form>
+                    <div class="form-group">
+                        <label for="videoTitle">Title:</label>
+                        <input type="text" class="form-control" id="videoTitle" placeholder="Enter title">
+                    </div>
+                    <!-- <h1 dddddd>Hello</h1> -->
+                    <div class="form-group">
+                        <label for="videoLink">Video Link:</label>
+                        <input type="text" class="form-control" id="videoLink" placeholder="Enter video link">
+                    </div>
+                    <div class="form-group">
+                        <label for="videoDiscription">Discription:</label>
+                        <input type="text" class="form-control" id="videoDiscription" placeholder="Enter Discription">
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="submitVideo()">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function openForm(formId) {
+        var forms = document.getElementsByClassName("form-container");
+        for (var i = 0; i < forms.length; i++) {
+            forms[i].style.display = "none";
+        }
+        document.getElementById(formId).style.display = "block";
+    }
+
+    function deleteItem() {
+        // Functionality for deleting item
+        console.log("Deleting item...");
+    }
+
+    function addItem() {
+        // Functionality for adding item
+        console.log("Adding item...");
+    }
+
+    function updateItem() {
+        // Functionality for updating item
+        console.log("Updating item...");
+    }
+
+    function submitVideo() {
+        var title = document.getElementById("videoTitle").value;
+        var link = document.getElementById("videoLink").value;
+        var discription = document.getElementById("videoDiscription").value;
+
+        // You can handle the submission of video here
+        console.log("Title: " + title + ", Video Link: " + link + "discription: ");
+    }
+</script>
+</body>
+</html>
